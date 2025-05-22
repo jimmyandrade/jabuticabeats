@@ -20,6 +20,24 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Dependency Management
+
+This project uses npm (Node Package Manager) and relies on the `package-lock.json` file to ensure that all developers and build environments use the exact same versions of project dependencies. This practice is crucial for maintaining consistency and avoiding "works on my machine" issues.
+
+**Recommended Installation Command:**
+
+For most cases, especially in CI/CD pipelines or when setting up the project for the first time, it is recommended to use:
+
+```bash
+npm ci
+```
+
+This command installs dependencies strictly based on `package-lock.json`, which can be faster and more reliable than `npm install` for ensuring reproducible builds. `npm install` should be used when you intend to update your dependencies or add new ones (which will, in turn, update `package-lock.json` if needed).
+
+**Other Package Managers:**
+
+While `npm` and `package-lock.json` are the primary mechanisms for this project, if you prefer using Yarn, pnpm, or Bun (as mentioned in the "Getting Started" section), these tools also generate and use their own lock files (`yarn.lock`, `pnpm-lock.yaml`, and `bun.lockb`, respectively) to achieve the same goal of pinned, reproducible dependency installations.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
